@@ -39,7 +39,10 @@ public class ControlPanel {
         switch (choice){
             case 1:
                 showListMenu();
+                break;
             case 2:
+                registerClient();
+                break;
 
         }
     }
@@ -63,7 +66,6 @@ public class ControlPanel {
                 System.out.println("=============================");
                 returnToMenu();
                 break;
-
             case 2:
                 System.out.println("=============================");
                 System.out.println("Digite o ID do Cliente:");
@@ -74,10 +76,27 @@ public class ControlPanel {
                 System.out.println("=============================");
                 returnToMenu();
                 break;
+            default:
+                System.out.println("=============================");
+                System.out.println("Valor inválido");
+                returnToMenu();
         }
     }
 
+    public static void registerClient(){
+        System.out.println("=============================");
+        System.out.println("Digite o Nome do Cliente:");
+        String name = scanner.nextLine();
 
+        System.out.println("Digite o Email do Cliente:");
+        String email = scanner.nextLine();
+
+        Client client = new Client(name,email);
+        controller.createClient(client);
+        System.out.println("Client Adicionado com Sucesso!");
+        System.out.println("=============================");
+        returnToMenu();
+    }
 
 
 

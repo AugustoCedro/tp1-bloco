@@ -21,6 +21,10 @@ public class ClientController {
         return service.getClientById(id);
     }
 
+    public void createClient(Client client){
+        service.createClient(client);
+    }
+
 
 
 

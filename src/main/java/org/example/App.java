@@ -4,6 +4,7 @@ import org.example.controller.ClientController;
 import org.example.exception.ClientNotFoundException;
 import org.example.util.ControlPanel;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -18,8 +19,14 @@ public class App
                 ControlPanel.showMenu();
                 int choice = ControlPanel.captureChoice();
                 ControlPanel.handleChoice(choice);
+
+
+
             }catch (ClientNotFoundException e){
                 System.out.println(e.getMessage());
+                ControlPanel.returnToMenu();
+            }catch (InputMismatchException E){
+                System.out.println("Valor escolhido inválido");
                 ControlPanel.returnToMenu();
             }
         }

@@ -26,4 +26,9 @@ public class ClientService {
         }
         return client;
     }
+
+    public void createClient(Client client) {
+        repository.addClient(client);
+
+    }
 }

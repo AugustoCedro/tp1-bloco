@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public class ClientRepository {
 
-    private final List<Client> repository;
+    private List<Client> repository = new ArrayList<>();
 
     public ClientRepository() {
         Client c1 = new Client("Alice", "alice@example.com");
@@ -22,7 +22,7 @@ public class ClientRepository {
         Client c8 = new Client( "Heidi", "heidi@example.com");
         Client c9 = new Client( "Ivan", "ivan@example.com");
         Client c10 = new Client( "Judy", "judy@example.com");
-        this.repository = List.of(c1,c2,c3,c4,c5,c6,c7,c8,c9,c10);
+        repository.addAll(List.of(c1,c2,c3,c4,c5,c6,c7,c8,c9,c10));
     }
 
     public List<Client> getRepository() {
@@ -36,5 +36,9 @@ public class ClientRepository {
             }
         }
        return null;
+    }
+
+    public void addClient(Client client) {
+        repository.add(client);
     }
 }
