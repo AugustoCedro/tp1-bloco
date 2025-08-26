@@ -1,11 +1,9 @@
-package org.example;
+package org.example.app;
 
-import org.example.controller.ClientController;
 import org.example.exception.ClientNotFoundException;
 import org.example.util.ControlPanel;
 
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
 /**
  * Hello world!

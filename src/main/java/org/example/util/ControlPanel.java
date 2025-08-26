@@ -35,7 +35,6 @@ public class ControlPanel {
         scanner.nextLine();
     }
 
-
     public static void handleChoice(int choice){
         switch (choice){
             case 1:
@@ -135,8 +134,6 @@ public class ControlPanel {
         System.out.println("=============================");
         returnToMenu();
     }
-
-
 
 
 
