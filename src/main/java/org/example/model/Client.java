@@ -1,5 +1,7 @@
 package org.example.model;
 
+import java.io.Serializable;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Client {
@@ -14,6 +16,14 @@ public class Client {
         this.name = name;
         this.email = email;
     }
+
+
+    public Client(int id,String name, String email){
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+
 
     public Integer getId() {
         return id;
@@ -35,12 +45,10 @@ public class Client {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "Client{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+    public static void resetSequence() {
+        sequence = 0;
     }
+
+
+
 }

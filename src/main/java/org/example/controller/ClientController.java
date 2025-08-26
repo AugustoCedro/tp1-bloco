@@ -25,8 +25,12 @@ public class ClientController {
         service.createClient(client);
     }
 
+    public void updateClient(Client client){
+        service.updateClient(client);
+    }
 
 
-
-
+    public void deleteClientById(int id) {
+        service.deleteClientById(id);
+    }
 }

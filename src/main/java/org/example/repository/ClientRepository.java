@@ -5,6 +5,7 @@ import org.example.model.Client;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public class ClientRepository {
@@ -40,5 +41,18 @@ public class ClientRepository {
 
     public void addClient(Client client) {
         repository.add(client);
+    }
+
+    public void updateClient(Client newClient) {
+        for(Client client : repository){
+            if(client.getId() == newClient.getId()){
+                client.setEmail(newClient.getEmail());
+                client.setName(newClient.getName());
+            }
+        }
+    }
+
+    public void deleteClient(int id) {
+        repository.remove(id - 1);
     }
 }

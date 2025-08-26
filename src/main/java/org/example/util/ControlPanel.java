@@ -3,6 +3,7 @@ package org.example.util;
 import org.example.controller.ClientController;
 import org.example.model.Client;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -41,9 +42,16 @@ public class ControlPanel {
                 showListMenu();
                 break;
             case 2:
-                registerClient();
+                registerClientMenu();
                 break;
-
+            case 3:
+                updateClientMenu();
+                break;
+            case 4:
+                deleteClientMenu();
+                break;
+            default:
+                throw new InputMismatchException();
         }
     }
 
@@ -83,7 +91,7 @@ public class ControlPanel {
         }
     }
 
-    public static void registerClient(){
+    public static void registerClientMenu(){
         System.out.println("=============================");
         System.out.println("Digite o Nome do Cliente:");
         String name = scanner.nextLine();
@@ -93,11 +101,40 @@ public class ControlPanel {
 
         Client client = new Client(name,email);
         controller.createClient(client);
-        System.out.println("Client Adicionado com Sucesso!");
+        System.out.println("Cliente Adicionado com Sucesso!");
         System.out.println("=============================");
         returnToMenu();
     }
 
+    public static void updateClientMenu(){
+        System.out.println("=============================");
+        System.out.println("Digite o ID do Cliente:");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Digite o Nome do Cliente:");
+        String name = scanner.nextLine();
+
+        System.out.println("Digite o Email do Cliente:");
+        String email = scanner.nextLine();
+
+        controller.updateClient(new Client(id,name,email));
+        System.out.println("Cliente Alterado com Sucesso!");
+        System.out.println("=============================");
+        returnToMenu();
+    }
+
+    public static void deleteClientMenu(){
+        System.out.println("=============================");
+        System.out.println("Digite o ID do Cliente:");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        controller.deleteClientById(id);
+        System.out.println("Cliente Apagado com Sucesso!");
+        System.out.println("=============================");
+        returnToMenu();
+    }
 
 
 

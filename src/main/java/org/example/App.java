@@ -19,22 +19,13 @@ public class App
                 ControlPanel.showMenu();
                 int choice = ControlPanel.captureChoice();
                 ControlPanel.handleChoice(choice);
-
-
-
-            }catch (ClientNotFoundException e){
+            }catch (ClientNotFoundException | IllegalArgumentException e){
                 System.out.println(e.getMessage());
                 ControlPanel.returnToMenu();
-            }catch (InputMismatchException E){
+            }catch (InputMismatchException e){
                 System.out.println("Valor escolhido inválido");
                 ControlPanel.returnToMenu();
             }
         }
-
-
-
-
-
-
     }
 }
