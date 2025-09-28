@@ -1,8 +1,6 @@
 package org.example.model;
 
-import java.io.Serializable;
-import java.util.Objects;
-import java.util.UUID;
+
 
 public class Client {
     private Integer id;
@@ -49,6 +47,12 @@ public class Client {
         sequence = 0;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
